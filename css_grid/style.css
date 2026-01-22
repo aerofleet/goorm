@@ -1,0 +1,176 @@
+
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --gap: 1.8rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  gap: var(--gap);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 6vw 2rem;
+  background: linear-gradient(120deg, #ffffff 0%, #eef2ff 60%);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.contact {
+  text-align: right;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.contact p + p {
+  margin-top: 0.4rem;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 6vw 3rem;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "profile"
+    "experience"
+    "education"
+    "skills";
+}
+
+.card {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+  border: 1px solid var(--border);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.profile {
+  grid-area: profile;
+}
+
+.experience {
+  grid-area: experience;
+}
+
+.education {
+  grid-area: education;
+}
+
+.skills {
+  grid-area: skills;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.label {
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.role {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.role span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.card ul {
+  padding-left: 1.2rem;
+}
+
+.card li {
+  margin-bottom: 0.4rem;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-grid h4 {
+  margin-bottom: 0.6rem;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  color: var(--muted);
+}
+
+@media (min-width: 1024px) {
+  .content {
+    grid-template-columns: minmax(260px, 0.9fr) 1.6fr;
+    grid-template-areas:
+      "profile experience"
+      "profile education"
+      "profile skills";
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .contact {
+    text-align: left;
+  }
+
+  .role {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
